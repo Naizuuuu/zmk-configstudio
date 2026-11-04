@@ -37,16 +37,6 @@
             bindings = <&kp ESC>;
         };
 
-        rfrsh {
-            bindings = <&kp F5>;
-            key-positions = <4 3>;
-        };
-
-        insrt {
-            bindings = <&kp F6>;
-            key-positions = <5 6>;
-        };
-
         ef4 {
             bindings = <&kp F4>;
             key-positions = <4 5>;
@@ -90,6 +80,16 @@
         cmbcut {
             bindings = <&kp K_CUT>;
             key-positions = <24 25>;
+        };
+
+        rfrsh {
+            bindings = <&kp F5>;
+            key-positions = <2 3>;
+        };
+
+        urlbar {
+            bindings = <&kp F6>;
+            key-positions = <12 13>;
         };
     };
 
@@ -282,7 +282,7 @@
 
             bindings = <
         &kp EXCL  &kp AT          &kp HASH        &kp DLLR         &kp PRCNT    &kp CARET     &kp AMPS      &kp ASTERISK  &kp SQT    &kp DQT
-        &none     &none           &mmv MOVE_UP    &trans           &none        &kp C_MUTE    &kp LEFT      &kp UP_ARROW  &kp RIGHT  &none
+        &none     &none           &mmv MOVE_UP    &trans           &none        &none         &kp LEFT      &kp UP_ARROW  &kp RIGHT  &none
 &trans  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none        &kp C_VOL_DN  &kp C_VOL_UP  &kp DOWN      &none      &none    &kp ENTER
                                   &trans          &trans           &trans       &trans        &trans        &trans
             >;
