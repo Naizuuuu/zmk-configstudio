@@ -12,10 +12,47 @@
     quick-tap-ms = <100>;
     global-quick-tap;
     flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    tapping-term-ms = <150>;
 };
 
 / {
+    behaviors {
+        /* Ctrl mod-tap: hold = modifier, tap = key; 200 ms tapping term. */
+        mtctrl: mod_tap_ctrl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <100>;
+            global-quick-tap;
+        };
+
+        /* Single tap = semicolon; double tap = colon. */
+        ttcolon: tap_tap_colon {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SEMI>, <&kp COLON>;
+        };
+
+        /* Single tap = Space; double tap = Period. */
+        ttspaceperiod: tap_dance_space_period {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SPACE>, <&kp DOT>;
+        };
+
+        /* Single tap = Question Mark; double tap = Exclamation Point. */
+        ttquestion: tap_dance_question_exclamation {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp QMARK>, <&kp EXCL>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -46,84 +83,92 @@
         base_layer {
             label = "BASE";
             bindings = <
-                // 00-09: top row
-                &kp Q       &kp W       &kp E       &kp R       &kp T
-                &kp Y       &kp U       &kp I       &kp O       &kp P
+                /* 00-09: top row */
+                &kp Q          &kp W          &kp E          &kp R          &kp T
+                &kp Y          &kp U          &kp I          &kp O          &kp P
 
-                // 10-19: home row
-                &kp A       &kp S       &kp D       &kp F       &kp G
-                &kp H       &kp J       &kp K       &kp L       &kp SEMI
+                /* 10-19: home row */
+                &kp A          &kp S          &kp D          &mt LSHIFT F   &kp G
+                &kp H          &mt RSHIFT J   &kp K          &kp L          &ttquestion
 
-                // 20-29: bottom alpha row
-                &kp Z       &kp X       &kp C       &kp V       &kp B
-                &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH
+                /* 20-31: complete third row, including both outer keys */
+                &mtctrl LCTRL TAB
+                &kp Z          &kp X          &kp C          &kp V          &kp B
+                &kp N          &kp M          &kp COMMA      &kp DOT        &ttcolon
+                &kp RET
 
-                // 30-37: left outer, left thumbs, right thumbs, right outer
-                &none       &none       &kp TAB       &lt NAV SPACE
-                &lt SYM RET &kp BSPC    &none         &none
+                /* 32-37: thumbs */
+                &kp LALT       &lt ADJ DEL     &lt NAV BSPC
+                &lt SYM SPACE  &ttspaceperiod        &kp LGUI
             >;
         };
 
         nav_layer {
             label = "NAVI";
             bindings = <
-                // 00-09: top row
-                &kp ESC      &bt BT_CLR   &kp UP       &kp EQUAL    &kp LBRC
-                &kp RBRC     &kp KP_N7    &kp KP_N8    &kp KP_N9    &kp KP_PLUS
+                /* 00-09 */
+                &kp ESC        &bt BT_CLR      &kp UP         &kp EQUAL      &kp LBRC
+                &kp RBRC       &kp KP_N7       &kp KP_N8      &kp KP_N9      &kp KP_PLUS
 
-                // 10-19: home row
-                &kp LSHFT    &kp LEFT     &kp DOWN     &kp RIGHT    &kp LBKT
-                &kp RBKT     &kp KP_N4    &kp KP_N5    &kp KP_N6    &kp KP_MINUS
+                /* 10-19 */
+                &kp LSHFT      &kp LEFT        &kp DOWN       &kp RIGHT      &kp LBKT
+                &kp RBKT       &kp KP_N4       &kp KP_N5      &kp KP_N6      &kp KP_MINUS
 
-                // 20-29: bottom alpha row
-                &kp DEL      &kp PG_UP    &kp CAPS     &kp PG_DN    &kp LPAR
-                &kp RPAR     &kp KP_N1    &kp KP_N2    &kp KP_N3    &kp KP_MULTIPLY
+                /* 20-31: outer + complete third row */
+                &trans
+                &kp DEL        &kp PG_UP       &kp CAPS       &kp PG_DN      &kp LPAR
+                &kp RPAR       &kp KP_N1       &kp KP_N2      &kp KP_N3      &kp KP_MULTIPLY
+                &trans
 
-                // 30-37: left outer, left thumbs, right thumbs, right outer
-                &trans       &trans       &trans        &trans
-                &mo ADJ      &kp KP_N0    &trans        &trans
+                /* 32-37: thumbs */
+                &trans         &trans          &trans
+                &mo ADJ        &kp KP_N0       &trans
             >;
         };
 
         sim_layer {
             label = "SYM";
             bindings = <
-                // 00-09: top row
-                &kp EXCL      &kp AT          &kp HASH       &kp DLLR      &kp PRCNT
-                &kp CARET     &kp AMPS        &kp RA(U)      &kp SQT       &kp DQT
+                /* 00-09 */
+                &kp EXCL       &kp AT          &kp HASH       &kp DLLR       &kp PRCNT
+                &kp CARET      &kp AMPS        &kp RA(U)      &kp SQT        &kp DQT
 
-                // 10-19: home row
-                &kp RA(A)     &trans          &kp RA(S)      &trans        &trans
-                &kp C_MUTE    &kp LS(RA(N4))  &kp RA(N5)     &kp RA(N4)    &kp RA(O)
+                /* 10-19 */
+                &kp RA(A)      &trans          &kp RA(S)      &trans         &trans
+                &kp C_MUTE     &kp LS(RA(N4))  &kp RA(N5)     &kp RA(N4)     &kp RA(O)
 
-                // 20-29: bottom alpha row
-                &kp RA(F18)   &kp RA(F19)     &trans         &trans        &trans
-                &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV     &kp C_NEXT    &kp BSLH
+                /* 20-31: outer + complete third row */
+                &trans
+                &kp RA(F18)    &kp RA(F19)     &trans         &trans         &trans
+                &kp C_VOL_DN   &kp C_VOL_UP    &kp C_PREV     &kp C_NEXT     &kp BSLH
+                &trans
 
-                // 30-37: left outer, left thumbs, right thumbs, right outer
-                &trans        &trans          &gif           &mo ADJ
-                &trans        &kp C_PP        &trans         &trans
+                /* 32-37: thumbs */
+                &trans         &gif            &mo ADJ
+                &trans         &kp C_PP        &trans
             >;
         };
 
         adjust_layer {
             label = "ADJ";
             bindings = <
-                // 00-09: top row
-                &sys_reset    &bt BT_CLR     &out OUT_TOG   &trans      &trans
-                &trans        &kp F7         &kp F8         &kp F9      &kp F12
+                /* 00-09 */
+                &sys_reset     &bt BT_CLR      &out OUT_TOG   &trans         &trans
+                &trans         &kp F7          &kp F8         &kp F9         &kp F12
 
-                // 10-19: home row
-                &bootloader   &bt BT_NXT     &trans         &trans      &trans
-                &trans        &kp F4         &kp F5         &kp F6      &kp F11
+                /* 10-19 */
+                &bootloader    &bt BT_NXT      &trans         &trans         &trans
+                &trans         &kp F4          &kp F5         &kp F6         &kp F11
 
-                // 20-29: bottom alpha row
-                &trans        &bt BT_PRV     &trans         &trans      &trans
-                &trans        &kp F1         &kp F2         &kp F3      &kp F10
+                /* 20-31: outer + complete third row */
+                &trans
+                &trans         &bt BT_PRV      &trans         &trans         &trans
+                &trans         &kp F1          &kp F2         &kp F3         &kp F10
+                &trans
 
-                // 30-37: left outer, left thumbs, right thumbs, right outer
-                &trans        &trans         &trans         &trans
-                &trans        &trans         &trans         &trans
+                /* 32-37: thumbs */
+                &trans         &trans          &trans
+                &trans         &trans          &trans
             >;
         };
     };
