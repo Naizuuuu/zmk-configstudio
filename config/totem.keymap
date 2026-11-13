@@ -106,11 +106,11 @@
             hold-trigger-key-positions = <32 33 34 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 34 35 36 37>;
         };
 
-        ttcolon: ttcolon {
+        ttapos: ttapos {
             compatible = "zmk,behavior-tap-dance";
-            label = "TTCOLON";
+            label = "TTAPOS";
             #binding-cells = <0>;
-            bindings = <&kp SEMICOLON>, <&kp COLON>;
+            bindings = <&mt RIGHT_GUI SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
         };
 
         ttquestion: ttquestion {
@@ -120,11 +120,18 @@
             bindings = <&kp QUESTION>, <&kp EXCL>;
         };
 
-        ttspaceperiod: ttspaceperiod {
+        ttspaceperiodL2: ttspaceperiodL2 {
             compatible = "zmk,behavior-tap-dance";
-            label = "TTSPACEPERIOD";
+            label = "TTSPACEPERIODL2";
             #binding-cells = <0>;
-            bindings = <&kp SPACE>, <&kp KP_DOT>;
+            bindings = <&lt 2 SPACE>, <&kp KP_DOT>;
+        };
+
+        ttcolon: ttcolon {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TTCOLON";
+            #binding-cells = <0>;
+            bindings = <&mt LEFT_ALT SEMICOLON>, <&kp COLON>;
         };
     };
 
@@ -150,10 +157,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                    &kp Q  &kp W  &kp E         &kp R               &kp T                &kp Y          &kp U                &kp I          &kp O    &kp P
-                    &kp A  &kp S  &kp D         &hmrl LEFT_SHIFT F  &kp G                &kp H          &hmrr RIGHT_SHIFT J  &kp K          &kp L    &ttquestion
-&hmrctrL LCTRL TAB  &kp Z  &kp X  &kp C         &kp V               &kp B                &kp N          &kp M                &kp COMMA      &kp DOT  &ttcolon     &kp ENTER
-                                  &kp LEFT_ALT  &lt 3 DELETE        &lt NAV BACKSPACE    &lt SYM SPACE  &ttspaceperiod       &kp RIGHT_GUI
+                    &kp Q  &kp W  &kp E     &kp R               &kp T                &kp Y             &kp U                &kp I      &kp O    &kp P
+                    &kp A  &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H             &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
+&hmrctrL LCTRL TAB  &kp Z  &kp X  &kp C     &kp V               &kp B                &kp N             &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
+                                  &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &ttspaceperiodL2  &ttquestion          &ttapos
             >;
         };
 
@@ -176,10 +183,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp TILDE  &kp KP_SLASH  &kp KP_MULTIPLY  &kp KP_MINUS   &kp LEFT_BRACE    &kp RBRC  &kp KP_N7  &kp KP_N8     &kp KP_N9  &kp KP_PLUS
-        &kp PIPE   &none         &kp UNDERSCORE   &trans         &kp LBKT          &kp RBKT  &kp KP_N4  &kp KP_N5     &kp KP_N6  &kp PERIOD
-&trans  &kp DEL    &none         &kp SLASH        &kp BACKSLASH  &kp LPAR          &kp RPAR  &kp KP_N1  &kp KP_N2     &kp KP_N3  &kp KP_NUMBER_0  &kp ENTER
-                                 &trans           &trans         &trans            &none     &none      &kp KP_EQUAL
+            &kp PRINTSCREEN   &kp LS(BACKSLASH)  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp ASTERISK     &kp KP_N7  &kp KP_N8     &kp KP_N9  &kp KP_NUMBER_0
+            &kp K_CALCULATOR  &kp BACKSLASH      &kp TILDE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET        &kp KP_SUBTRACT  &kp KP_N4  &kp KP_N5     &kp KP_N6  &kp PERIOD
+&kp LS(F9)  &none             &none              &none           &kp LEFT_BRACE        &kp RIGHT_BRACE          &kp KP_DIVIDE    &kp KP_N1  &kp KP_N2     &kp KP_N3  &none            &kp ENTER
+                                                 &trans          &trans                &trans                   &none            &none      &kp KP_EQUAL
             >;
         };
 
@@ -202,10 +209,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp EXCL  &kp AT  &kp HASH    &kp DLLR       &kp PRCNT        &kp CARET     &kp AMPS      &kp ASTERISK  &kp SQT    &kp DQT
-        &none     &none   &none       &trans         &none            &none         &kp LEFT      &kp UP_ARROW  &kp RIGHT  &none
-&trans  &none     &none   &none       &none          &none            &kp C_VOL_DN  &kp C_VOL_UP  &kp DOWN      &none      &none    &kp ENTER
-                          &kp RS(F9)  &kp LA(ENTER)  &kp LS(ENTER)    &trans        &trans        &trans
+        &kp EXCL  &kp AT  &kp HASH    &kp DLLR       &kp PRCNT        &kp CARET  &kp AMPS  &kp ASTERISK  &kp SQT    &kp DQT
+        &kp F1    &kp F2  &kp F3      &kp F4         &kp F5           &none      &kp LEFT  &kp UP_ARROW  &kp RIGHT  &none
+&trans  &kp F10   &kp F9  &kp F8      &kp F7         &kp F6           &none      &none     &kp DOWN      &none      &none    &kp ENTER
+                          &kp RS(F9)  &kp LA(ENTER)  &kp LS(ENTER)    &trans     &trans    &trans
             >;
         };
 
@@ -228,10 +235,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-        &kp F1           &kp F2          &kp F3        &kp F4        &kp F5          &kp F6  &kp F7    &kp F8        &kp F9     &kp F10
-        &kp PRINTSCREEN  &bt BT_CLR_ALL  &none         &trans        &none           &none   &kp LEFT  &kp UP_ARROW  &kp RIGHT  &kp PG_UP
-&trans  &kp SCROLLLOCK   &bt BT_CLR      &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &none   &kp HOME  &kp DOWN      &kp END    &kp PG_DN  &kp ENTER
-                                         &trans        &trans        &trans          &trans  &trans    &trans
+           &none           &none       &none         &none         &none           &none   &kp HOME  &kp PAGE_UP    &none  &none
+           &none           &none       &none         &trans        &none           &none   &kp END   &kp PAGE_DOWN  &none  &none
+&kp LCTRL  &bt BT_CLR_ALL  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &none   &none     &none          &none  &none  &kp ENTER
+                                       &trans        &trans        &trans          &trans  &trans    &trans
             >;
         };
     };
