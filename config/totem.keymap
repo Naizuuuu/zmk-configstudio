@@ -292,10 +292,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &none  &smileeyes  &bigsmile  &smiley     &none     &kp HOME   &kp PAGE_UP    &kp K_COPY   &none  &none
-           &none  &cry        &rofl      &manbowing  &none     &kp END    &kp PAGE_DOWN  &kp K_PASTE  &none  &none
-&kp LCTRL  &none  &none       &none      &none       &none     &kp LC(Y)  &kp LC(Z)      &kp K_CUT    &none  &misis  &stringstring
-                              &trans     &trans      &trans    &kp TAB    &kp LS(TAB)    &trans
+           &none           &smileeyes  &bigsmile  &smiley     &none     &kp HOME   &kp PAGE_UP    &kp K_COPY   &none  &none
+           &none           &cry        &rofl      &manbowing  &none     &kp END    &kp PAGE_DOWN  &kp K_PASTE  &none  &none
+&kp LCTRL  &studio_unlock  &none       &none      &none       &none     &kp LC(Y)  &kp LC(Z)      &kp K_CUT    &none  &misis  &stringstring
+                                       &trans     &trans      &trans    &kp TAB    &kp LS(TAB)    &trans
             >;
         };
 
