@@ -35,26 +35,6 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-
-        Entre {
-            bindings = <&kp ENTER>;
-            key-positions = <5 6>;
-        };
-
-        rfrsh {
-            bindings = <&kp F5>;
-            key-positions = <2 3>;
-        };
-
-        urlbar {
-            bindings = <&kp F6>;
-            key-positions = <12 13>;
-        };
-
-        ef4 {
-            bindings = <&kp F4>;
-            key-positions = <6 7>;
-        };
     };
 
     behaviors {
@@ -132,6 +112,59 @@
             label = "TTCOLON";
             #binding-cells = <0>;
             bindings = <&mt LEFT_ALT SEMICOLON>, <&kp COLON>;
+        };
+    };
+
+    macros {
+        manbowing: manbowing {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp M &kp A &kp N &kp B &kp O &kp W &kp I &kp N &kp G &kp COLON>;
+            label = "MANBOWING";
+        };
+
+        smiley: smiley {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp RPAR>;
+            label = "SMILEY";
+        };
+
+        bigsmile: bigsmile {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp LS(D)>;
+            label = "BIGSMILE";
+        };
+
+        rofl: rofl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp R &kp O &kp F &kp L &kp COLON>;
+            label = "ROFL";
+        };
+
+        smileeyes: smileeyes {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp S &kp M &kp I &kp L &kp E &kp E &kp Y &kp E &kp S &kp COLON>;
+            label = "SMILEEYES";
+        };
+
+        stringstring: stringstring {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp O &kp A &kp N &kp N3 &kp N2 &kp N3 &kp N1 &kp N5>;
+            label = "STRINGSTRING";
+            wait-ms = <20>;
+            tap-ms = <15>;
+        };
+
+        cry: cry {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp C &kp R &kp Y &kp COLON>;
+            label = "CRY";
         };
     };
 
