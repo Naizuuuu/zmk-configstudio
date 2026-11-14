@@ -237,9 +237,9 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                    &excape  &kp W  &kp E     &kp R               &kp T                &kp Y             &kp U                &kp I      &kp O    &kp P
-                    &kp A    &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H             &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
-&hmrctrL LCTRL TAB  &kp Z    &kp X  &kp C     &kp V               &kp B                &kp N             &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
+                    &excape  &kp W  &kp E     &kp R               &kp T                &kp Y              &kp U                &kp I      &kp O    &kp P
+                    &kp A    &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H              &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
+&hmrctrL LCTRL TAB  &kp Z    &kp X  &kp C     &kp V               &kp B                &kp N              &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
                                     &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &lt_space_dot 2 0  &ttquestion          &ttapos
             >;
         };
@@ -263,10 +263,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-            &kp PRINTSCREEN   &kp LS(BACKSLASH)  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp ASTERISK     &kp KP_N7  &kp KP_N8     &kp KP_N9  &kp KP_NUMBER_0
-            &kp K_CALCULATOR  &kp BACKSLASH      &kp TILDE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET        &kp KP_SUBTRACT  &kp KP_N4  &kp KP_N5     &kp KP_N6  &kp PERIOD
-&kp LS(F9)  &none             &none              &none           &kp LEFT_BRACE        &kp RIGHT_BRACE          &kp KP_DIVIDE    &kp KP_N1  &kp KP_N2     &kp KP_N3  &none            &kp ENTER
-                                                 &trans          &trans                &trans                   &none            &none      &kp KP_EQUAL
+            &kp PRINTSCREEN   &kp LS(BACKSLASH)  &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp ASTERISK     &kp N7    &kp N8        &kp N9  &kp N0
+            &kp K_CALCULATOR  &kp BACKSLASH      &kp TILDE       &kp LEFT_BRACKET      &kp RIGHT_BRACKET        &kp KP_SUBTRACT  &kp N4    &kp N5        &kp N6  &kp PERIOD
+&kp LS(F9)  &none             &none              &none           &kp LEFT_BRACE        &kp RIGHT_BRACE          &kp KP_DIVIDE    &kp N1    &kp N2        &kp N3  &none       &kp ENTER
+                                                 &trans          &trans                &trans                   &none            &kp PLUS  &kp KP_EQUAL
             >;
         };
 
@@ -315,9 +315,9 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &none           &smileeyes  &bigsmile  &smiley     &none     &kp HOME   &kp PAGE_UP    &kp K_COPY   &none  &none
-           &none           &cry        &rofl      &manbowing  &none     &kp END    &kp PAGE_DOWN  &kp K_PASTE  &none  &none
-&kp LCTRL  &studio_unlock  &none       &none      &none       &none     &kp LC(Y)  &kp LC(Z)      &kp K_CUT    &none  &misis  &stringstring
+           &none           &smileeyes  &bigsmile  &smiley     &none     &kp HOME   &kp PAGE_UP    &kp LC(C)  &none  &none
+           &none           &cry        &rofl      &manbowing  &none     &kp END    &kp PAGE_DOWN  &kp LC(V)  &none  &none
+&kp LCTRL  &studio_unlock  &none       &none      &none       &none     &kp LC(Y)  &kp LC(Z)      &kp LC(X)  &none  &misis  &stringstring
                                        &trans     &trans      &trans    &kp TAB    &kp LS(TAB)    &trans
             >;
         };
