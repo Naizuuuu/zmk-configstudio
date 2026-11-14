@@ -35,6 +35,21 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+
+        EnterKey {
+            bindings = <&kp ENTER>;
+            key-positions = <3 4 5 6>;
+        };
+
+        shftenter {
+            bindings = <&kp LS(ENTER)>;
+            key-positions = <4 5>;
+        };
+
+        BLT {
+            bindings = <&lt 4 A>;
+            key-positions = <0 34>;
+        };
     };
 
     behaviors {
@@ -166,6 +181,15 @@
             bindings = <&kp COLON &kp C &kp R &kp Y &kp COLON>;
             label = "CRY";
         };
+
+        misis: misis {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(J) &kp A &kp P &kp A &kp N &kp N &kp O &kp V &kp E &kp M &kp B &kp E &kp R &kp N2 &kp N0 &kp N2 &kp N6 &kp STAR &kp ENTER>;
+            label = "MISIS";
+            wait-ms = <20>;
+            tap-ms = <15>;
+        };
     };
 
     keymap {
@@ -268,10 +292,19 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &none           &none       &none         &none         &none           &none   &kp HOME  &kp PAGE_UP    &none  &none
-           &none           &none       &none         &trans        &none           &none   &kp END   &kp PAGE_DOWN  &none  &none
-&kp LCTRL  &bt BT_CLR_ALL  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &none   &none     &none          &none  &none  &kp ENTER
-                                       &trans        &trans        &trans          &trans  &trans    &trans
+           &none  &smileeyes  &bigsmile  &smiley     &kp K_COPY     &kp HOME  &kp PAGE_UP    &none   &none  &none
+           &none  &cry        &rofl      &manbowing  &kp K_PASTE    &kp END   &kp PAGE_DOWN  &none   &none  &none
+&kp LCTRL  &none  &none       &none      &none       &kp K_CUT      &none     &none          &none   &none  &misis  &stringstring
+                              &trans     &trans      &trans         &trans    &trans         &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+        &trans  &trans  &bt BT_CLR_ALL  &bt BT_CLR  &bt BT_SEL 0    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans          &trans      &bt BT_SEL 1    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans      &bt BT_SEL 2    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans          &trans      &trans          &trans  &trans  &trans
             >;
         };
     };
