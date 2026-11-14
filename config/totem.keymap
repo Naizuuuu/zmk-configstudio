@@ -292,17 +292,17 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &none  &smileeyes  &bigsmile  &smiley     &kp K_COPY     &kp HOME  &kp PAGE_UP    &none   &none  &none
-           &none  &cry        &rofl      &manbowing  &kp K_PASTE    &kp END   &kp PAGE_DOWN  &none   &none  &none
-&kp LCTRL  &none  &none       &none      &none       &kp K_CUT      &none     &none          &none   &none  &misis  &stringstring
-                              &trans     &trans      &trans         &trans    &trans         &trans
+           &none  &smileeyes  &bigsmile  &smiley     &none     &kp HOME   &kp PAGE_UP    &kp K_COPY   &none  &none
+           &none  &cry        &rofl      &manbowing  &none     &kp END    &kp PAGE_DOWN  &kp K_PASTE  &none  &none
+&kp LCTRL  &none  &none       &none      &none       &none     &kp LC(Y)  &kp LC(Z)      &kp K_CUT    &none  &misis  &stringstring
+                              &trans     &trans      &trans    &kp TAB    &kp LS(TAB)    &trans
             >;
         };
 
         layer_4 {
             bindings = <
         &trans  &trans  &bt BT_CLR_ALL  &bt BT_CLR  &bt BT_SEL 0    &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans          &trans      &bt BT_SEL 1    &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans          &kp X       &bt BT_SEL 1    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans          &trans      &bt BT_SEL 2    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans          &trans      &trans          &trans  &trans  &trans
             >;
