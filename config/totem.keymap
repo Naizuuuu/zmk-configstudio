@@ -10,7 +10,6 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-#include <behaviors/battery_reporter.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
@@ -121,11 +120,22 @@
             bindings = <&kp QUESTION>, <&kp EXCL>;
         };
 
-        ttspaceperiodL2: ttspaceperiodL2 {
+        td_space_dot: td_space_dot {
             compatible = "zmk,behavior-tap-dance";
-            label = "TTSPACEPERIODL2";
+            label = "TD_SPACE_DOT";
             #binding-cells = <0>;
-            bindings = <&lt 2 SPACE>, <&kp KP_DOT>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SPACE>, <&kp KP_DOT>;
+        };
+
+        lt_space_dot: lt_space_dot {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT_SPACE_DOT";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&td_space_dot>;
         };
 
         ttcolon: ttcolon {
@@ -230,7 +240,7 @@
                     &excape  &kp W  &kp E     &kp R               &kp T                &kp Y             &kp U                &kp I      &kp O    &kp P
                     &kp A    &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H             &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
 &hmrctrL LCTRL TAB  &kp Z    &kp X  &kp C     &kp V               &kp B                &kp N             &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
-                                    &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &ttspaceperiodL2  &ttquestion          &ttapos
+                                    &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &lt_space_dot 2 0  &ttquestion          &ttapos
             >;
         };
 
