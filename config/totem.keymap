@@ -156,7 +156,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "LAYERSPCPER";
             #binding-cells = <0>;
-            bindings = <&lt 2 SPACE>, <&kp KP_DOT>;
+            bindings = <&lt 2 SPACE>, <&kp PERIOD>;
         };
     };
 
