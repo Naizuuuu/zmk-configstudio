@@ -151,6 +151,13 @@
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp ESCAPE>;
         };
+
+        layerspcper: layerspcper {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYERSPCPER";
+            #binding-cells = <0>;
+            bindings = <&lt 2 SPACE>, <&kp KP_DOT>;
+        };
     };
 
     macros {
@@ -237,10 +244,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                    &excape  &kp W  &kp E     &kp R               &kp T                &kp Y              &kp U                &kp I      &kp O    &kp P
-                    &kp A    &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H              &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
-&hmrctrL LCTRL TAB  &kp Z    &kp X  &kp C     &kp V               &kp B                &kp N              &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
-                                    &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &lt_space_dot 2 0  &ttquestion          &ttapos
+                    &excape  &kp W  &kp E     &kp R               &kp T                &kp Y         &kp U                &kp I      &kp O    &kp P
+                    &kp A    &kp S  &kp D     &hmrl LEFT_SHIFT F  &kp G                &kp H         &hmrr RIGHT_SHIFT J  &kp K      &kp L    &kp SEMI
+&hmrctrL LCTRL TAB  &kp Z    &kp X  &kp C     &kp V               &kp B                &kp N         &kp M                &kp COMMA  &kp DOT  &kp SINGLE_QUOTE  &kp ENTER
+                                    &ttcolon  &lt 3 DELETE        &lt NAV BACKSPACE    &layerspcper  &ttquestion          &ttapos
             >;
         };
 
